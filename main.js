@@ -6,6 +6,7 @@ const { Message, MessageEmbed, } = require("discord.js")
 const { createAudioPlayer } = require('@discordjs/voice');
 const BlaguesAPI = require('blagues-api');
 const blagues = new BlaguesAPI(config.blagueapi);
+const { Events } = require('discord.js');
 
 const player = createAudioPlayer();
 
@@ -82,20 +83,16 @@ bot.on("ready", async () => {
     bot.on("messageCreate", message => {
         if (message.content.includes("daron")) {
             message.channel.send("il l'a abandonné")
-        }
-    })
-
-    bot.on("messageCreate", message => {
-        if (message.content.includes("david")) {
+        } else if (message.content.includes("david")) {
+            message.channel.send("légende, a créer le fils de dieu, le plus grand de tous les temps, le plus beau, le plus fort, le plus intelligent, le plus rapide, le plus grand, le plus puissant")
+        } else if (message.content.includes("enzo")) {
+            message.channel.send(" Enculé, Pédé, Pédale, Tapette, Tantouze, Fiotte, Tafiole, Tarlouze, Sac à foutre, Petite bite, Couille molle, Salope, Chienne, Cagole, Travelo")
+        } else if (message.content.includes("mur sur des murs")) {
             message.channel.send("NON FDP")
         }
     })
 
-    bot.on("messageCreate", message => {
-        if (message.content.includes("enzo")) {
-            message.channel.send(" Enculé, Pédé, Pédale, Tapette, Tantouze, Fiotte, Tafiole, Tarlouze, Sac à foutre, Petite bite, Couille molle, Salope, Chienne, Cagole, Travelo")
-        }
-    })
+
 
 
     bot.on("messageCreate", message => {
@@ -128,5 +125,6 @@ bot.on("ready", async () => {
         }
     })
 
+    bot.user.setActivity(`TOUT VAS BIEN D'ACCORD`);
 })
 
